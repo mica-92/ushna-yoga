@@ -23,6 +23,7 @@ body {
   flex-direction: column;
   flex-grow: 1;
   margin: 0 5%; /* 5% margin on left and right */
+
 }
 
 header {
@@ -103,7 +104,10 @@ header img {
   padding: 0 10px;
 }
 
-
+header, footer {
+  flex-shrink: 0;
+  width: 100%;
+}
 
 nav {
   flex-grow: 1; /* Make the nav occupy remaining space */
@@ -119,6 +123,8 @@ nav {
   opacity: 0; /* Initially hidden */
   animation: fadeIn 0.8s ease-in-out forwards; /* Fade-in effect */
   animation-delay: 1s; /* Delay after header and announcement-nav */
+  overflow-y: auto; /* Makes the nav section scrollable */
+
 }
 
 nav a {
@@ -287,5 +293,10 @@ footer a:hover {
 
   .image-column {
     display: none; /* Make each column take full width */
+  }
+
+  .p-text-left {
+    width: 100%;
+    text-align: center;
   }
 }
