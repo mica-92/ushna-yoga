@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Keyframes for fade-in effect */
 @keyframes fadeIn {
   from {
@@ -23,7 +24,6 @@ body {
   flex-direction: column;
   flex-grow: 1;
   margin: 0 5%; /* 5% margin on left and right */
-
 }
 
 header {
@@ -104,10 +104,7 @@ header img {
   padding: 0 10px;
 }
 
-header, footer {
-  flex-shrink: 0;
-  width: 100%;
-}
+
 
 nav {
   flex-grow: 1; /* Make the nav occupy remaining space */
@@ -123,8 +120,6 @@ nav {
   opacity: 0; /* Initially hidden */
   animation: fadeIn 0.8s ease-in-out forwards; /* Fade-in effect */
   animation-delay: 1s; /* Delay after header and announcement-nav */
-  overflow-y: auto; /* Makes the nav section scrollable */
-
 }
 
 nav a {
@@ -294,9 +289,297 @@ footer a:hover {
   .image-column {
     display: none; /* Make each column take full width */
   }
-
-  .p-text-left {
-    width: 100%;
-    text-align: center;
+}
+=======
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
+
+body {
+  font-family: 'Libre Bodoni', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ebdbc2ff; /* New background color */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 5%; /* 5% margin on left and right */
+}
+
+header {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0; /* Initially hidden */
+  animation: fadeIn 0.8s ease-in-out forwards; /* Fade-in effect */
+}
+
+header img {
+  width: 150px; /* Adjust logo size as needed */
+}
+
+.announcement-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-top: 10px;
+  padding: 10px 10px; /* Added padding */
+}
+
+.ig-logo img,
+.whatsapp-logo img {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px; /* Adjust margin for spacing between logos */
+}
+
+.announcement-text {
+  flex: 1;
+  font-family: "Kalypsa";
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 20px; /* Space between logo and text */
+  margin-right: 20px; /* Space between logo and text */
+  border-top: 2px solid #0b2a2bff; /* Top line */
+  border-bottom: 2px solid #0b2a2bff; /* Bottom line */
+  display: flex;
+  align-items: center; /* Center text vertically */
+}
+
+.announcement-nav {
+  display: flex;
+  font-family: 'Libre Bodoni';
+  gap: 20px; /* Space between each link */
+  width: 100%;
+  flex-direction: row; /* Display elements horizontally */
+  justify-content: space-around; /* Evenly distribute elements */
+  align-items: center;
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  animation: fadeIn 0.8s ease-in-out forwards; /* Fade-in effect */
+  animation-delay: 0.8s; /* Delay after header */
+}
+
+.announcement-nav a {
+  font-family: 'Libre Bodoni';
+  font-weight: bold;
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Text color */
+  font-size: 16px; /* Font size */
+  padding: 10px 15px; /* Padding inside each link */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.announcement-nav a:hover {
+  font-family: 'Libre Bodoni';
+  font-size: 20px; /* Font size */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.announcement-message {
+  padding: 0 10px;
+}
+
+
+
+nav {
+  flex-grow: 1; /* Make the nav occupy remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-image: url("bck20.png");
+  background-repeat: no-repeat; /* Prevent background image from repeating */
+  background-size: 100% auto; /* Cover 100% width, maintain aspect ratio */
+  background-position: top; /* Optional: Center the background image */
+  opacity: 0; /* Initially hidden */
+  animation: fadeIn 0.8s ease-in-out forwards; /* Fade-in effect */
+  animation-delay: 1s; /* Delay after header and announcement-nav */
+}
+
+nav a {
+  text-decoration: none;
+  color: #0b2a2bff; /* Text color */
+  position: relative; /* Ensure relative positioning for pseudo-element */
+  font-size: 12vh; /* Set font size in vh units to cover entire height */
+  margin: 10px 0; /* Add margin between links for spacing */
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* Position the thicker underline below the text */
+  width: 100%; /* Full width of the text */
+  height: 4px; /* Thicker underline height */
+  background-color: transparent; /* Initial underline color */
+  transition: width 0.5s ease, background-color 0.5s ease; /* Smooth transition for underline */
+}
+
+nav a:hover::after {
+  background-color: #0b2a2bff; /* Color of the underline on hover */
+  width: 100%; /* Full width of the underline */
+}
+
+nav h1, nav p {
+  margin: 0;
+  color: #0b2a2bff; /* Text color */
+  text-align: center;
+}
+
+nav h1 {
+  font-size: 4vh; /* Adjust font size as needed */
+  margin-top: 20px; /* Add space above each h1 */
+}
+
+nav p {
+  font-size: 3vh; /* Adjust font size as needed */
+  margin-bottom: 20px; /* Add space below each p */
+  font-family: "Kalypsa";
+  width: 80%;
+}
+
+/* Style for the p-text class */
+.p-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2vh;
+  width: 90%;
+  margin: 0 auto; /* Centers the content horizontally */
+
+}
+
+.p-text-left {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2vh;
+  width: 90%;
+  text-align: left;
+}
+
+.p-text img {
+  max-width: 300px; /* Ensures the image scales down proportionally */
+  height: auto; /* Maintains the image's aspect ratio */
+  display: block; /* Ensures the image is treated as a block element */
+  margin: 20px auto; /* Adds space around the image and centers it horizontally */
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Kalypsa";
+  align-items: center;
+  padding: 10px;
+  position: relative; /* Ensure position context for pseudo-element */
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Line height */
+  background-color: #0b2a2bff; /* Line color */
+}
+
+footer img {
+  width: 20px;
+}
+
+footer a {
+  color: #0b2a2bff; /* Link color */
+  text-decoration: none; /* Remove underline from the link */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Underline the link on hover */
+}
+
+/* Columns class styles */
+.columns-class {
+  display: flex;
+  width: 80%;
+}
+
+.text-column {
+  width: 60%;
+  
+  box-sizing: border-box;
+}
+
+.text-column h1 {
+  margin-bottom: 20px; /* Add space above each h1 */
+}
+
+.image-column {
+  width: 40%;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+
+.image-column img {
+  width: 100%; /* Make the image take full width of its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media query for screens less than 900px */
+@media (max-width: 900px) {
+  nav a {
+    font-size: calc(12vw + 8px); /* Adjust font size based on viewport width */
+  }
+
+  .announcement-bar {
+    flex-direction: row; /* Display elements horizontally */
+    justify-content: space-around; /* Evenly distribute elements */
+    align-items: center;
+    text-align: center;
+    border-top: 2px solid #0b2a2bff; /* Top line */
+    border-bottom: 2px solid #0b2a2bff; /* Bottom line */
+  }
+
+  .announcement-text {
+    display: none;
+  }
+
+  .words {
+    display: none; /* Disable animation for smaller screens */
+  }
+}
+
+@font-face {
+  font-family: 'Kalypsa'; /* Name your custom font family */
+  src: url('fonts/Kalypsa.ttf') format('truetype'); /* Specify the path to your .ttf file */
+  /* Add additional src declarations for other formats (e.g., woff, woff2) if available */
+}
+
+@media screen and (max-width: 1200px) {
+  .columns-class {
+    flex-direction: column-reverse; /* Stack the image first and then the text */
+  }
+
+  .text-column {
+    width: 100%; /* Make each column take full width */
+    padding: 10px; /* Adjust padding as needed */
+  }
+
+  .image-column {
+    display: none; /* Make each column take full width */
+  }
+}
+>>>>>>> 396b1a32162048ef4b826a9ff70d6a4ffac70d41
