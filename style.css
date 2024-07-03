@@ -31,7 +31,7 @@ header {
   flex-direction: column; /* Stack elements vertically */
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   opacity: 0; /* Initially hidden */
   animation: fadeIn 0.8s ease-in-out forwards; /* Fade-in effect */
 }
@@ -109,8 +109,17 @@ header, footer {
   width: 100%;
 }
 
+/* Centering header, nav, and footer */
+header, nav, footer {
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  text-align: center;
+  margin: 0 auto;
+}
+
 nav {
   flex-grow: 1; /* Make the nav occupy remaining space */
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -294,9 +303,21 @@ footer a:hover {
   .image-column {
     display: none; /* Make each column take full width */
   }
+  
+  body {
 
-  .p-text-left {
-    width: 100%;
-    text-align: center;
-  }
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+}
+
+  /* Centering header, nav, and footer */
+  header, nav, footer {
+  width: 100%;
+  
+  text-align: center;
+  margin: 0 ;}
 }
