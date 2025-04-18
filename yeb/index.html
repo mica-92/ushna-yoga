@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reseñas de Estudios de Yoga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html"><img src="assets/logo.png" alt="Logo Reseñas Yoga"></a>
+
+      <div class="announcement-bar">
+        <div class="ig-logo">
+          <a href="https://www.instagram.com/tu_cuenta/"><img src="assets/instagram.png" alt="Instagram"></a>
+        </div>
+
+        <div class="announcement-text">
+          <span class="announcement-nav">
+              <a href="index.html">INICIO</a>
+              <a href="#mapa">MAPA</a>
+              <a href="#reseñas">RESEÑAS</a>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Sección del Mapa -->
+      <section id="mapa" class="map-section">
+        <h2>Estudios de Yoga en tu Ciudad</h2>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...[TU_API_KEY]" 
+                  width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </section>
+
+      <!-- Sección de Reseñas -->
+      <section id="reseñas" class="reviews-section">
+        <h2>Reseñas de Estudios</h2>
+        <div id="reviews-container">
+          <!-- El contenido se cargará dinámicamente desde archivos Markdown -->
+          <div class="loading-message">Cargando reseñas...</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="current-year"></span> Reseñas de Yoga</p>
+      <a href="https://www.instagram.com/tu_cuenta/">
+        <img src="assets/instagram.png" alt="Instagram"> @tu_cuenta
+      </a>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Array of studio markdown files to load
+    const studioFiles = [
+      'studios/estudio1.md',
+      'studios/estudio2.md',
+      // Add more studio files as needed
+    ];
+
+    // Load and process each studio file
+    const loadPromises = studioFiles.map(file => {
+      return fetch(file)
+        .then(response => {
+          if (!response.ok) throw new Error(`Error loading ${file}`);
+          return response.text();
+        })
+        .then(markdown => {
+          // Convert Markdown to HTML
+          const html = marked.parse(markdown);
+          
+          // Create a container div for this studio
+          const studioDiv = document.createElement('div');
+          studioDiv.className = 'review-item';
+          studioDiv.innerHTML = html;
+          
+          return studioDiv;
+        })
+        .catch(error => {
+          console.error(error);
+          const errorDiv = document.createElement('div');
+          errorDiv.className = 'error-message';
+          errorDiv.textContent = `Error loading studio content: ${file}`;
+          return errorDiv;
+        });
+    });
+
+    // When all files are loaded
+    Promise.all(loadPromises)
+      .then(studioElements => {
+        const container = document.getElementById('reviews-container');
+        container.innerHTML = ''; // Clear loading message
+        
+        studioElements.forEach(element => {
+          container.appendChild(element);
+        });
+        
+        // Initialize toggle buttons
+        initToggleButtons();
+      });
+
+    // Function to initialize toggle buttons
+    function initToggleButtons() {
+      const toggleButtons = document.querySelectorAll('.toggle-btn');
+      
+      toggleButtons.forEach(button => {
+        // Skip if already initialized
+        if (button.dataset.initialized) return;
+        
+        button.dataset.initialized = 'true';
+        const targetId = button.getAttribute('data-target');
+        const content = document.getElementById(targetId);
+        
+        if (!content) return;
+        
+        // Set initial state
+        content.style.display = 'none';
+        if (!button.querySelector('.toggle-icon')) {
+          const icon = document.createElement('span');
+          icon.className = 'toggle-icon';
+          icon.textContent = '▼';
+          button.prepend(icon);
+        }
+        
+        button.addEventListener('click', function() {
+          if (content.style.display === "none") {
+            content.style.display = "block";
+            button.querySelector('.toggle-icon').textContent = '▲';
+          } else {
+            content.style.display = "none";
+            button.querySelector('.toggle-icon').textContent = '▼';
+          }
+        });
+      });
+    }
+  });
+  </script>
+</body>
+</html>

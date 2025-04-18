@@ -1,0 +1,324 @@
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Estilos base */
+body {
+  font-family: 'Libre Bodoni', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ebdbc2ff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #0b2a2bff;
+}
+
+/* Container and Header with matching width/margins */
+.container, header {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 20px;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+header img {
+  width: 200px;
+  padding: 10px 0 0 0;
+}
+
+.announcement-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-top: 10px;
+  padding: 10px 0;
+}
+
+.ig-logo img {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+}
+
+.announcement-text {
+  flex: 1;
+  font-family: "Kalypsa";
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-top: 2px solid #0b2a2bff;
+  border-bottom: 2px solid #0b2a2bff;
+  display: flex;
+  align-items: center;
+}
+
+.announcement-nav {
+  display: flex;
+  font-family: 'Kalypsa';
+  gap: 20px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  animation-delay: 0.8s;
+}
+
+.announcement-nav a {
+  font-family: 'Kalypsa';
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.announcement-nav a:hover {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+/* Main content styles */
+main {
+  flex: 1;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* Map section */
+.map-section {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.map-section h2 {
+  font-family: 'Kalypsa';
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Reviews section */
+.reviews-section {
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.reviews-section h2 {
+  font-family: 'Kalypsa';
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.review-item {
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.toggle-btn {
+  background-color: #0b2a2bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Kalypsa';
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.toggle-btn:hover {
+  background-color: #1a4a4cff;
+}
+
+.toggle-btn::after {
+  content: ' ▼';
+  font-size: 0.9rem;
+}
+
+.toggle-btn.active::after {
+  content: ' ▲';
+}
+
+.review-content {
+  padding: 15px 0;
+  display: none;
+}
+
+.review-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.review-content li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.review-content li::before {
+  content: "•";
+  color: #0b2a2bff;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.review-content strong {
+  color: #0b2a2bff;
+}
+
+/* Markdown generated content styles */
+.markdown-content h3 {
+  font-family: 'Libre Bodoni';
+  color: #0b2a2bff;
+  margin-top: 20px;
+}
+
+.markdown-content p {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+.markdown-content a {
+  color: #0b2a2bff;
+  text-decoration: underline;
+}
+
+/* Footer styles */
+footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Kalypsa";
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0b2a2bff;
+}
+
+footer img {
+  width: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+footer a {
+  color: #0b2a2bff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .container, header, footer {
+    width: 95%;
+  }
+}
+
+@media (max-width: 900px) {
+  .announcement-bar {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+
+  .announcement-text {
+    display: none;
+  }
+
+  .announcement-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .map-section h2, 
+  .reviews-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container, header {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  header img {
+    width: 150px;
+  }
+
+  .ig-logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .toggle-btn {
+    padding: 8px 15px;
+    font-size: 1rem;
+  }
+}
+
+/* Font faces */
+@font-face {
+  font-family: 'Kalypsa';
+  src: url('fonts/Kalypsa.ttf') format('truetype');
+}
